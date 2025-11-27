@@ -1,0 +1,394 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+  padding: 20px;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== GRADIENT BORDERS ===== */
+.input-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3px;
+  border-radius: 12px;
+}
+
+.input-section > * {
+  border-radius: 9px;
+}
+
+#taskInput {
+  background: white;
+}
+
+.priority-section,
+.deadline-section,
+.filter-section {
+  position: relative;
+}
+
+.priority-section::before,
+.deadline-section::before,
+.filter-section::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* ===== CONTAINER STYLES ===== */
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #34db7f, #2bc971);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2d3748;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #34db7f, #2d3748);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 10px 0;
+}
+
+/* ===== INPUT SECTION STYLES ===== */
+.input-section {
+  display: flex;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 5px;
+  border: 1px solid #f0f0f0;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+#taskInput:focus {
+  outline: none;
+  background: #f8f9fa;
+}
+
+#addBtn {
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #34db7f, #2bc971);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(52, 219, 127, 0.3);
+}
+
+#addBtn:hover {
+  background: linear-gradient(135deg, #2bc971, #25b362);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 219, 127, 0.4);
+}
+
+/* ===== PRIORITY SECTION STYLES ===== */
+.priority-section,
+.deadline-section {
+  margin-bottom: 15px;
+  text-align: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.priority-section label,
+.deadline-section label {
+  font-weight: 600;
+  color: #4a5568;
+  margin-right: 10px;
+}
+
+#prioritySelect {
+  padding: 8px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+#prioritySelect:focus {
+  outline: none;
+  border-color: #34db7f;
+  box-shadow: 0 0 0 3px rgba(52, 219, 127, 0.1);
+}
+
+#deadlineInput {
+  padding: 8px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+#deadlineInput:focus {
+  outline: none;
+  border-color: #34db7f;
+  box-shadow: 0 0 0 3px rgba(52, 219, 127, 0.1);
+}
+
+/* Warna background untuk setiap prioritas */
+.priority-low {
+  border-left: 4px solid #27ae60;
+  background: linear-gradient(135deg, #f0f9f4, white);
+}
+.priority-medium {
+  border-left: 4px solid #f39c12;
+  background: linear-gradient(135deg, #fef9f0, white);
+}
+.priority-high {
+  border-left: 4px solid #e74c3c;
+  background: linear-gradient(135deg, #fef0f0, white);
+}
+
+/* ===== FILTER SECTION STYLES ===== */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  margin: 0 8px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #34db7f, #2bc971);
+  color: white;
+  border-color: #34db7f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 219, 127, 0.3);
+}
+
+.filter-btn:hover:not(.active) {
+  background: #edf2f7;
+  border-color: #34db7f;
+  color: #2d3748;
+  transform: translateY(-1px);
+}
+
+/* ===== DEADLINE SECTION STYLES ===== */
+.deadline-section {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#deadlineInput {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: #ecf0f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: #34db7f;
+  color: white;
+}
+
+/* ===== TASK LIST STYLES ===== */
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 8px 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid #ddd;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  background: #fafafa;
+}
+
+/* Style untuk tugas yang sudah selesai */
+li.completed {
+  color: #535c5c;
+}
+
+li.completed .task-text {
+  text-decoration: line-through;
+}
+
+.task-text {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.task-text {
+  flex: 1;
+  margin-left: 12px;
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+.deadline-text {
+  font-size: 11px;
+  background: #f8f9fa;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-weight: 600;
+  margin: 0 10px;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.deadline-text {
+  font-size: 12px;
+  color: #666;
+  margin: 0 10px;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* ===== DELETE BUTTON STYLES ===== */
+.delete-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-1px);
+}
+
+/* ===== EMPTY STATE STYLES ===== */
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #4a5252;
+}
+
+/* ===== ENHANCED STYLES ===== */
+.task-item {
+  background: white;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.priority-high {
+  background: linear-gradient(135deg, #ffe8e6, white);
+}
+.priority-medium {
+  background: linear-gradient(135deg, #fff4e6, white);
+}
+.priority-low {
+  background: linear-gradient(135deg, #e6f7ff, white);
+}
+
+/* ===== ENHANCED EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 16px;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 2px dashed #cbd5e0;
+}
+
+.empty-state::before {
+  content: "📝";
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Habits</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kegiatan Harian</h1>
+
+      <!-- SECTION 1: Input untuk menambah tugas baru -->
+      <div class="input-section">
+        <input type="text" id="taskInput" placeholder="Tambah kegiatan baru" />
+        <button id="addBtn">Tambah</button>
+      </div>
+
+      <!-- SECTION 2: Input deadline tugas -->
+      <div class="deadline-section">
+        <label>Deadline:</label>
+        <input type="datetime-local" id="deadlineInput" />
+      </div>
+
+      <!-- SECTION 3: Pilihan prioritas tugas -->
+      <div class="priority-section">
+        <label>Prioritas:</label>
+        <select id="prioritySelect">
+          <option value="low">Rendah</option>
+          <option value="medium" selected>Sedang</option>
+          <option value="high">Tinggi</option>
+        </select>
+      </div>
+
+      <!-- SECTION 4: Filter untuk menampilkan tugas -->
+      <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="active">Belum Selesai</button>
+        <button class="filter-btn" data-filter="completed">Selesai</button>
+      </div>
+
+      <!-- SECTION 5: Daftar tugas akan muncul di sini -->
+      <ul id="taskList">
+        <!-- Daftar tugas akan dimuat secara dinamis oleh JavaScript -->
+      </ul>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
